@@ -1,0 +1,13 @@
+FROM ruby:2.7.2-alpine
+
+ENV TAG=Alpine
+
+WORKDIR /app
+
+RUN apk add --no-cache nodejs yarn build-base tzdata
+
+COPY . /app/
+
+EXPOSE 3000
+
+ENTRYPOINT ["sh", "entrypoint.sh"]
